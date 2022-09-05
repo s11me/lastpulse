@@ -2,8 +2,8 @@ $(document).ready(function(){
     $('.carousel__inner').slick({
         speed: 1200,
         adaptiveHeight: true,
-        prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg"></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg"></button>',
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/leftarrow.png"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/rightarrow.png"></button>',
         responsive: [
             {
                 breakpoint: 992,
@@ -27,9 +27,9 @@ $(document).ready(function(){
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
                 $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-            })
+            });
         });
-    };
+    }
 
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
@@ -48,5 +48,12 @@ $(document).ready(function(){
             $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay, #order').fadeIn('slow');
         });
+    });
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 1000) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }   
     });
 });
